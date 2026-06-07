@@ -48,11 +48,11 @@ target_link_libraries(sound-switcher
 
 target_compile_definitions(sound-switcher
     PRIVATE
-        SOUNDSWITCHER_DESKTOP_ID="io.github.fabian.SoundSwitcher"
+        SOUNDSWITCHER_DESKTOP_ID="soundswitcher"
         SOUNDSWITCHER_VERSION="${PROJECT_VERSION}"
 )
 
-set(SOUNDSWITCHER_DESKTOP_ID "io.github.fabian.SoundSwitcher")
+set(SOUNDSWITCHER_DESKTOP_ID "soundswitcher")
 
 configure_file(
     data/${SOUNDSWITCHER_DESKTOP_ID}.desktop.in

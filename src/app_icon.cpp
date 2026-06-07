@@ -69,7 +69,7 @@ QIcon soundSwitcherIcon()
 {
     auto icon = renderedSoundSwitcherIcon();
     if (icon.isNull()) {
-        icon = QIcon(QStringLiteral(":/icons/io.github.fabian.SoundSwitcher.svg"));
+        icon = QIcon(QStringLiteral(":/icons/soundswitcher.svg"));
     }
     if (icon.isNull()) {
         icon = QIcon::fromTheme(QStringLiteral(SOUNDSWITCHER_DESKTOP_ID));
