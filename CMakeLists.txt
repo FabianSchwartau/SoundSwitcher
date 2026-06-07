@@ -75,6 +75,7 @@ else()
 endif()
 
 option(SOUNDSWITCHER_INSTALL_AUTOSTART "Install a desktop autostart entry" ON)
+option(SOUNDSWITCHER_REFRESH_PLASMA_CACHE "Refresh Plasma's application cache after install when kbuildsycoca6 is available" ON)
 set(SOUNDSWITCHER_AUTOSTART_DIR "${_soundswitcher_default_autostart_dir}"
     CACHE PATH "Directory for the SoundSwitcher autostart desktop entry")
 
@@ -95,4 +96,16 @@ if(SOUNDSWITCHER_INSTALL_AUTOSTART)
         DESTINATION ${SOUNDSWITCHER_AUTOSTART_DIR}
         RENAME ${SOUNDSWITCHER_DESKTOP_ID}.desktop
     )
+endif()
+
+if(SOUNDSWITCHER_REFRESH_PLASMA_CACHE)
+    install(CODE [[
+        find_program(KBUILDSYCOCA6_EXECUTABLE kbuildsycoca6)
+        if(KBUILDSYCOCA6_EXECUTABLE AND NOT DEFINED ENV{DESTDIR})
+            execute_process(COMMAND "${KBUILDSYCOCA6_EXECUTABLE}" RESULT_VARIABLE _soundswitcher_ksycoca_result)
+            if(NOT _soundswitcher_ksycoca_result EQUAL 0)
+                message(STATUS "kbuildsycoca6 failed; Plasma may notice the launcher entry after its next cache refresh.")
+            endif()
+        endif()
+    ]])
 endif()

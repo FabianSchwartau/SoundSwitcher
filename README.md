@@ -2,7 +2,7 @@
 
 SoundSwitcher is a small KDE/Wayland tray application for switching the default audio output with global keyboard shortcuts.
 
-The application is 100% vibe-coded, so you have been warned.
+The entire codebase was created by AI.
 
 ## Features
 

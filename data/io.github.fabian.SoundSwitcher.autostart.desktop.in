@@ -1,11 +1,13 @@
 [Desktop Entry]
 Type=Application
 Name=SoundSwitcher
+GenericName=Audio Output Switcher
 Comment=Switch audio outputs with global shortcuts
 Exec=@CMAKE_INSTALL_FULL_BINDIR@/sound-switcher --hidden
 Icon=@SOUNDSWITCHER_DESKTOP_ID@
 Terminal=false
 Categories=AudioVideo;Audio;Utility;Qt;KDE;
+Keywords=audio;sound;output;sink;shortcut;tray;switch;
 StartupNotify=false
 X-GNOME-Autostart-enabled=true
 X-KDE-autostart-after=panel
